@@ -1,0 +1,70 @@
+.stavka{
+  margin: 80px auto;
+  padding: 0 80px;
+  position: relative;
+}
+.komentari{
+  overflow: hidden;
+}
+.komentari ul{
+  display: flex;
+  width: 200%;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+.komentari ul li{
+  list-style: none;
+  width: 50%;
+  padding: 20px;
+}
+.komentar{
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  padding: 40px;
+  border-radius: 10px;
+  background: #caf0f8;
+  color: rgb(2, 39, 72);
+  line-height: 1.4;
+}
+.komentar img{
+  width: 70px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 4px solid #0e0245;
+}
+.user-info{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+.btn{
+    background-color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+}
+.dugme{
+    display: flex;
+  justify-content: flex-end;
+}
+.next-btn, .before-btn{
+
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 15px;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  background:#ffafcc ;
+  border: none;
+  color: white;
+}
+.before-btn{
+  left: 0;
+  right: auto;
+}

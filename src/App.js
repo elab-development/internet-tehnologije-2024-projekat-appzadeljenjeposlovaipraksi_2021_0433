@@ -1,6 +1,8 @@
 
 import './App.css';
+import Naslov from './komponente/naslov/Naslov';
 import Navbar from './komponente/navBar/Navbar';
+import PStavka from './komponente/pocetnaStavka/PStavka';
 import Pozadina from './komponente/PozadinaPocetna/Pozadina';
 
 function App() {
@@ -8,6 +10,8 @@ function App() {
         <div id='root'>
       <Navbar/>
       <Pozadina/>
+      <Naslov podnaslov='utisci' naslov='Nasih studenata'/>
+      <PStavka/>
         </div>
     
   

@@ -1,5 +1,6 @@
 import React from 'react'
 import './Pozadina.css'
+import Dugme from '../dugme/Dugme'
 
 function Pozadina() {
   return (
@@ -7,7 +8,7 @@ function Pozadina() {
     <div className="pocetna-tekst">
         <h1>Započnite karijeru jednim klikom!</h1>
         <p>Edukatino Vam omogućava da pronađete..</p>
-        <button className='btn'>Saznaj više</button>
+        <Dugme/>
     </div>
     </div>
   )
