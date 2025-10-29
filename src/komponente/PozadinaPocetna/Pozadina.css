@@ -1,0 +1,27 @@
+.pocetna{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(19, 0, 70, 0.7),rgba(0, 54, 111, 0.7)), url('../../assets/people1.jpg');
+    background-size: cover;       /* rasteže sliku da pokrije cijeli prostor */
+    background-position: center;  /* centriraj sliku */
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pocetna-tekst{
+    text-align: center;
+    max-width: 800px;
+    font-family: 'Poppins', sans-serif;
+   
+}
+.pocetna-tekst h1{
+    font-size: 60px;
+    font-weight: 600;
+}
+.pocetna-tekst p{
+    max-width: 700px;
+    margin: 10px auto 20px;
+    line-height: 1.4;
+}
