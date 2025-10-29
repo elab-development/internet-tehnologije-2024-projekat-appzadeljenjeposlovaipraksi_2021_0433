@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { GoChevronRight } from "react-icons/go";
 import { MdNavigateBefore } from "react-icons/md";
 import { MdNavigateNext } from "react-icons/md";
@@ -14,18 +14,35 @@ import user4 from '../../assets/profile44.jpg'
 function PStavka() {
     let naslov="naslov";
     let opis="opis";
+
+    const ulPom=useRef();
+    let tx=0;
+
+    const next=()=>{
+      if(tx >-50){
+        tx-=25
+      }
+      ulPom.current.style.transform=`translateX(${tx}%)`
+    }
+
+    const before=()=>{
+      if(tx < 0){
+        tx+=25
+      }
+      ulPom.current.style.transform=`translateX(${tx}%)`
+    }
   return (
 
     <div className='stavka'>
-      <button className="before-btn">
+      <button className="before-btn" onClick={before}>
       <MdNavigateBefore />
       </button>
-       <button className="next-btn">
+       <button className="next-btn" onClick={next}>
       <MdNavigateNext />
       </button>
 
       <div className="komentari">
-        <ul>
+        <ul ref={ulPom}>
           <li>
             <div className="komentar">
               <div className="user-info">
@@ -94,13 +111,6 @@ function PStavka() {
           </li>
         </ul>
         </div>
-
-        <div className="dugme">
-        <button className='btn'> 
-            <GoChevronRight />
-        </button>
-        </div>
-
     </div>
     
 
