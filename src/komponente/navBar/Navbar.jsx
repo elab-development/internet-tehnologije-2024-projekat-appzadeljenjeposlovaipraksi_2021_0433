@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { IoMenuSharp } from "react-icons/io5";
 import logo from '../../assets/logo.png';
 import './Navbar.css';
 import { Link, useLocation } from 'react-router-dom';
@@ -16,7 +15,7 @@ useEffect(()=>{
   })} else{
     setSticky(true);
   }
-}, []);
+}, [location]);
 
   return (
    

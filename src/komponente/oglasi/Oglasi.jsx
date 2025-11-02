@@ -4,19 +4,18 @@ import './Oglasi.css'
 
 function Oglasi() {
 
+  const str = 'O';
   return (
     <div className="oglasi-stranica">
       <div className="lista-oglasa">
-        <Stavka />
-        <Stavka />
-        <Stavka />
-        <Stavka />
-        <Stavka />
-        <Stavka />
-        <Stavka />
-        <Stavka />
-
-
+        <Stavka stranica={str}/>
+        <Stavka stranica={str}/>
+        <Stavka stranica={str}/>
+        <Stavka stranica={str}/>
+        <Stavka stranica={str}/>
+        <Stavka stranica={str}/>
+        <Stavka stranica={str}/>
+        <Stavka stranica={str}/>
         
       </div>
     </div>

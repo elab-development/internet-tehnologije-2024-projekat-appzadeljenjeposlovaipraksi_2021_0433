@@ -1,11 +1,11 @@
-.OStavka {
+.KStavka {
   margin: 40px auto;
   position: relative;
-  width: 220px;
+  width: 320px;
   height: 320px;
   border-radius: 15px;
   padding: 15px;
-  background-color: #a2d2ff;
+  background-color: #ffc8dd;
   color: white;
   display: flex;
   flex-direction: column;
@@ -13,10 +13,9 @@
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: filter 0.3s ease;
 }
-.OStavka:hover{
+.KStavka:hover{
   filter: brightness(0.8);
 } 
-
 .overlay{
   position: absolute;
   top: 0;
@@ -36,64 +35,39 @@
   pointer-events: none;
   text-align: center;
 }
-
-.OStavka:hover .overlay{
+.KStavka:hover .overlay{
   opacity: 1;
 }
-.OStavka img {
+.KStavka img {
   width: 100%;
-  height: 50%;
+  height: 80%;
   object-fit: cover;
   border-radius: 15px;
 }
-
-.opis {
-  text-align: center;
-  padding: 10px;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  color: #003049;
-}
-.opis h3:first-child {
-  margin-bottom: 10px;
-  margin: 5px;
-}
-.opis h3:last-child {
-  text-align: left;
-  padding-left: 10px;
-  margin-top: auto;
-  font-size: 13px;
-  
-  
-}
-
-
-.Okomp-info {
-  display: flex;
+.komp-detalji{
+    display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 0 10px;
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
 }
-.Okomp-info .naziv, .lokacija {
-  display: flex;
+.komp-detalji .naziv, .lokacija {
+  /*display: flex;
   align-items: center;
-  gap: 5px;
-  margin-bottom: 2px;
+  gap: 5px;*/
+  color: #003049;
+  margin-bottom: 5px;
   margin-top: 5px;
 }
-.vrsta{
- background-color: #ffafcc;
+.stanje{
+  border: #003049;
+  display: flex;
+ align-items: flex-start;
   border-radius: 5px;
   color: white;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 5px;
-  
-}
-.vrsta h3{
   padding: 5px;
   
 }
-
-

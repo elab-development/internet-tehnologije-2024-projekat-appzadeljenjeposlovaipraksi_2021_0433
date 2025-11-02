@@ -7,6 +7,8 @@ import PStavka from './komponente/pocetnaStavka/PStavka';
 import Pozadina from './komponente/PozadinaPocetna/Pozadina';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Oglasi from './komponente/oglasi/Oglasi';
+import DetaljiOglas from './komponente/oglasi/DetaljiOglas';
+import Kompanije from './komponente/kompanije/Kompanije';
 function App() {
   return (
     <BrowserRouter>
@@ -22,8 +24,11 @@ function App() {
           </Route>
             <Route path='/oglasi' element={<Oglasi/>}>
           </Route>
+          <Route path='/detaljiOglas:id' element={<DetaljiOglas/>}></Route>
+         <Route path='/kompanije' element={<Kompanije/>}></Route>
       </Routes>
-      
+    
+
         </BrowserRouter>
     
   

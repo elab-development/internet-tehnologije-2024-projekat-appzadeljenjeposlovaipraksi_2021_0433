@@ -1,11 +1,14 @@
 .oglasi-stranica {
   padding: 40px 20px; 
   margin-top: 80px;  
+ /* background: linear-gradient(#ffc8dd8a);*/
+  background: linear-gradient(#bde0fe84);
+
 }
 
 .lista-oglasa {
   display: flex;
-  flex-wrap: wrap;         /* omogućava prelazak u novi red ako nema mjesta */
-  gap: 40px;               /* razmak između kartica */
-  justify-content: flex-start; /* centriraj kartice horizontalno */
+  flex-wrap: wrap;         
+  gap: 40px;              
+  justify-content: flex-start; 
 }
