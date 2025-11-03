@@ -16,7 +16,7 @@ function Stavka({stranica}) {
 
     const navigate=useNavigate()
     const otvoriOglas = ()=>{
-      navigate(`/detaljiOglas:${id}`);
+      navigate(`/detaljiOglas/${id}`);
     }
 
   return (

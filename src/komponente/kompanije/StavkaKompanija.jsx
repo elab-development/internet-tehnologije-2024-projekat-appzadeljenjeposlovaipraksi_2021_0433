@@ -16,7 +16,7 @@ function StavkaKompanija() {
 
     const navigate=useNavigate()
    const otvoriKomp = ()=>{
-      navigate(`/detaljiKompanija:${id}`);
+      navigate(`/detaljiKompanija/${id}`);
     }
 
   return (

@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Oglasi from './komponente/oglasi/Oglasi';
 import DetaljiOglas from './komponente/oglasi/DetaljiOglas';
 import Kompanije from './komponente/kompanije/Kompanije';
+import DetaljiKompanije from './komponente/kompanije/DetaljiKompanije';
 function App() {
   return (
     <BrowserRouter>
@@ -24,8 +25,10 @@ function App() {
           </Route>
             <Route path='/oglasi' element={<Oglasi/>}>
           </Route>
-          <Route path='/detaljiOglas:id' element={<DetaljiOglas/>}></Route>
+          <Route path='/detaljiOglas/:id' element={<DetaljiOglas/>}></Route>
          <Route path='/kompanije' element={<Kompanije/>}></Route>
+         <Route path='/detaljiKompanija/:idK' element={<DetaljiKompanije/>}></Route>
+
       </Routes>
     
 

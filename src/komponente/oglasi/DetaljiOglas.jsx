@@ -1,11 +1,11 @@
 import React from 'react'
+import Detalji from '../detalji/Detalji'
 
 function DetaljiOglas() {
+  let str='O'
   return (
     <div className='detaljiOglas'>
-        <div className="head">
-            detalji stranica
-        </div>
+        <Detalji str={str}/>
     </div>
   )
 }
