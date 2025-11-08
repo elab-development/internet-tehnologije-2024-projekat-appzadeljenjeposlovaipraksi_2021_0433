@@ -82,10 +82,6 @@ function Kompanije() {
       <Naslov podnaslov='u nastavku mozete pogledati listu nasih' naslov='PARTNERA' />
         <div className="lista-komp">
           <StavkaKompanija/>
-          <StavkaKompanija/>
-          <StavkaKompanija/>
-          <StavkaKompanija/>
-          <StavkaKompanija/>
 
 
         </div>

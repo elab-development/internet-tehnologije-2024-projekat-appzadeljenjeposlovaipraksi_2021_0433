@@ -10,6 +10,8 @@ import Oglasi from './komponente/oglasi/Oglasi';
 import DetaljiOglas from './komponente/oglasi/DetaljiOglas';
 import Kompanije from './komponente/kompanije/Kompanije';
 import DetaljiKompanije from './komponente/kompanije/DetaljiKompanije';
+import MojProfil from './komponente/mojProfil/MojProfil';
+import Kontakt from './komponente/kontakt/Kontakt';
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +30,11 @@ function App() {
           <Route path='/detaljiOglas/:id' element={<DetaljiOglas/>}></Route>
          <Route path='/kompanije' element={<Kompanije/>}></Route>
          <Route path='/detaljiKompanija/:idK' element={<DetaljiKompanije/>}></Route>
+         <Route path='/mojProfil' element={<MojProfil/>}></Route>
+         <Route path='/kontakt' element={<Kontakt/>}></Route>
+
+
+
 
       </Routes>
     

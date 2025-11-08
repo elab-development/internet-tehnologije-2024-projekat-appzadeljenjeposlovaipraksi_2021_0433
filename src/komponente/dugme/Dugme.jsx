@@ -1,8 +1,8 @@
 import React from 'react'
 import './Dugme.css'
 
-function Dugme() {
-    let tekst="Sacuvaj";
+function Dugme({tekst}) {
+    /*let tekst="Sacuvaj";*/
    // let akcija=nekaAkcija();
   return (
     <button className='btn'>

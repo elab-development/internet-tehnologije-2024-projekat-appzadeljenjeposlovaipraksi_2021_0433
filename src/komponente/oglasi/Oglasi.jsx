@@ -9,14 +9,6 @@ function Oglasi() {
     <div className="oglasi-stranica">
       <div className="lista-oglasa">
         <Stavka stranica={str}/>
-        <Stavka stranica={str}/>
-        <Stavka stranica={str}/>
-        <Stavka stranica={str}/>
-        <Stavka stranica={str}/>
-        <Stavka stranica={str}/>
-        <Stavka stranica={str}/>
-        <Stavka stranica={str}/>
-        
       </div>
     </div>
   );

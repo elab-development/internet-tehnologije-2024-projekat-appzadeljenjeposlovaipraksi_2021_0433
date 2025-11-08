@@ -2,7 +2,6 @@ nav{
    /* background:#a2d2ff;*/
     width: 100%;
     color: white;
-    padding: 4px 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -10,10 +9,15 @@ nav{
     align-items: center;
     justify-content: space-between;
     z-index: 10;
+     height: 80px; /* dodaj fiksnu visinu */
+    padding: 0 30px;
 }
-.logo{
-    width: 100px;
+.logo {
+  width: 200px;
+  height: 70px;
+  object-fit: contain;
 }
+
 nav ul li{
     display: inline-block;
     list-style: none;

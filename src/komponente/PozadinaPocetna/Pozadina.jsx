@@ -7,8 +7,7 @@ function Pozadina() {
     <div className='pocetna'>
     <div className="pocetna-tekst">
         <h1>Započnite karijeru jednim klikom!</h1>
-        <p>Edukatino Vam omogućava da pronađete..</p>
-        <Dugme/>
+        <p>Praksion Vam omogućava da pronađete..</p>
     </div>
     </div>
   )

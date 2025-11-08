@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Detalji.css'
 import Stavka from '../stavka/Stavka'
+import Dugme from '../dugme/Dugme'
+import Forma from '../kontakt/Forma';
 
 function Detalji({str}) {
 
+    const[modalOpen, setModalOpen]=useState(false);
+    const otvoriModal = ()=>setModalOpen(true);
+    const zatvoriModal = ()=> setModalOpen(false);
     
 
   return (
@@ -25,6 +30,9 @@ function Detalji({str}) {
                 <h3>Opis oglasa</h3>
                 <p>fhbhvbhbfhvbhvbhvbfbhf</p>
             </div>
+            <div className='dugme' onClick={otvoriModal}>
+                <Dugme tekst='Prijavi se'/>
+            </div>
             </div> :
                 <div className="telo">
             <div className="pozicija">
@@ -36,14 +44,23 @@ function Detalji({str}) {
                 <p>fhbhvbhbfhvbhvbhvbfbhf</p>
             </div>
             <div className='ogl'>
-            <Stavka/>
-            <Stavka/>
-            <Stavka/>
-            <Stavka/>
+            <Stavka stranica={'O'}/>
+            <Stavka stranica={'O'}/>
+            <Stavka stranica={'O'}/>
+            <Stavka stranica={'O'}/>
 
              </div>
           
             </div>}
+
+            {modalOpen && (
+                <div className="modal-overlay" onClick={zatvoriModal}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <button className='zatvori' onClick={zatvoriModal}>X</button>
+                        <Forma/>
+                    </div>
+                </div>
+            )}
     
         </div>
     

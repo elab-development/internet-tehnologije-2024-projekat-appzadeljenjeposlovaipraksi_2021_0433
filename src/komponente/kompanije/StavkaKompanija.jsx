@@ -1,26 +1,59 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import logo1 from '../../assets/lidl.png'
 import './StavkaKompanije.css'
 import { useNavigate } from 'react-router-dom';
 import { IoLocationOutline } from "react-icons/io5";
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../firebase';
 
 
 function StavkaKompanija() {
-    let nazivKomp='Lidl';
-    let lokacija='Beograd';
-    let stanje='2';
-    let id='k1';
+
+  const [nizKomp, setNizKomp]=useState([])
+
+  const ref=collection(db,"kompanije")
+
+  async function getNizKomp() {
+
     
-  
-  
+      const snapshot = await getDocs(ref);
+      const items = [];
+    
+      snapshot.docs.forEach(function(doc) {
+        const podatak = doc.data();
+        podatak.id = doc.id;
+        items.push(podatak);
+      });
+    
+      setNizKomp(items);
+      
+    
+  }
+  useEffect(() =>{
 
-    const navigate=useNavigate()
-   const otvoriKomp = ()=>{
+    getNizKomp();
+  }, [])
+
+   const navigate=useNavigate()
+   const otvoriKomp = (id)=>{
       navigate(`/detaljiKompanija/${id}`);
-    }
+  }
+function getStanje(nazivKomp){
+  return 3;
+}
 
-  return (
-    <div className='KStavka' onClick={otvoriKomp}>
+
+  return(
+
+    <>
+    {nizKomp.map((komp) =>{
+      let nazivKomp=komp.naziv;
+      let lokacija=komp.mesto;
+      let stanje= getStanje(komp.naziv);
+      let id=komp.id;
+    
+ return (
+    <div className='KStavka' onClick={() => otvoriKomp(id)}>
         <img src={logo1} alt="" />
          <div className="overlay">
          <h3>Prikaži detalje o kompaniji</h3> 
@@ -44,6 +77,19 @@ function StavkaKompanija() {
         
     </div>
   )
+    
+    
+    })}
+   
+    
+  
+  
+
+   
+
+  
+  </>
+)
 }
 
 export default StavkaKompanija
