@@ -51,10 +51,11 @@ function getStanje(nazivKomp){
       let lokacija=komp.mesto;
       let stanje= getStanje(komp.naziv);
       let id=komp.id;
+      let logo=komp.logo
     
  return (
     <div className='KStavka' onClick={() => otvoriKomp(id)}>
-        <img src={logo1} alt="" />
+        <img src={logo} alt="" />
          <div className="overlay">
          <h3>Prikaži detalje o kompaniji</h3> 
          </div>

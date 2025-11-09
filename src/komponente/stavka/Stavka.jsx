@@ -4,15 +4,14 @@ import { IoLocationOutline } from "react-icons/io5";
 import './Stavka.css'
 import logo1 from '../../assets/lidl.png'
 import { useNavigate } from 'react-router-dom';
-import firebase from '../../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase';
 
-function Stavka({stranica}) {
+function Stavka({stranica, trenutnaStr, velicinaStr, filterGrad, filterTip, onUkupnoStr}) {
 
 
   const [nizOglasa, setNizOglasa]=useState([]);
-  const[Loading, setLoading]=useState(false);
+  
 
   const ref=collection(db,"oglasi");
 
@@ -21,7 +20,7 @@ function Stavka({stranica}) {
    
 
 async function getNizOglasa() {
-  setLoading(true);
+  
 
   const snapshot = await getDocs(ref);
   const items = [];
@@ -33,7 +32,7 @@ async function getNizOglasa() {
   });
 
   setNizOglasa(items);
-  setLoading(false);
+  
 }
 
 
@@ -44,15 +43,32 @@ async function getNizOglasa() {
    
 
 
-let trenutni; 
+const filtriraniOglasi = nizOglasa.filter(oglas => {
+  return (
+    (filterGrad === "" || oglas.grad === filterGrad) &&
+    (filterTip === "" || oglas.tip === filterTip)
+  );
+});
 
-const otvoriOglas = ()=>{
-      navigate(`/detaljiOglas/${trenutni.id}`);
-    }
+const ukupnoStr= Math.ceil(filtriraniOglasi.length/velicinaStr)
+
+useEffect(() => {
+ if(onUkupnoStr){
+  onUkupnoStr(ukupnoStr)
+ }
+}, [filtriraniOglasi, velicinaStr]);
+
+
+
+const startIndex = (trenutnaStr - 1) * velicinaStr;
+const endIndex = startIndex + velicinaStr;
+const prikazaniOglasi = filtriraniOglasi.slice(startIndex, endIndex);
+
+
 return (
   <>
-    {nizOglasa.map((oglas) => {
-      /*const {id, kompanija, grad, pozicija, rok, tip } = oglas;*/
+    {prikazaniOglasi.map((oglas) => {
+    
       const id=oglas.id;
       const kompanija =oglas.kompanija;
       const grad = oglas.grad;
@@ -61,7 +77,7 @@ return (
       const tip= oglas.tip;
       const logo =oglas.logo
 
-      trenutni=oglas;
+
 
       return (
         <div key={id} className='OStavka' onClick={() => navigate(`/detaljiOglas/${id}`)}>
