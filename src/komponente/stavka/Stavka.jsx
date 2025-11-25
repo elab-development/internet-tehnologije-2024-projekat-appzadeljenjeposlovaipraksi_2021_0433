@@ -17,6 +17,9 @@ function Stavka({stranica, trenutnaStr, velicinaStr, filterGrad, filterTip, onUk
 
 
   const navigate=useNavigate()
+  const otvoriOglas=(oglas) =>{
+    navigate(`/detaljiOglas/${oglas.id}`)
+  }
    
 
 async function getNizOglasa() {
@@ -80,7 +83,7 @@ return (
 
 
       return (
-        <div key={id} className='OStavka' onClick={() => navigate(`/detaljiOglas/${id}`)}>
+        <div key={id} className='OStavka' onClick={() => otvoriOglas(oglas)}>
           <img src={logo} alt={kompanija} />
           <div className="overlay">
             <h3>Prikaži oglas</h3>

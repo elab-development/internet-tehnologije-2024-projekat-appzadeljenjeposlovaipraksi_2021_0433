@@ -35,8 +35,8 @@ function StavkaKompanija() {
   }, [])
 
    const navigate=useNavigate()
-   const otvoriKomp = (id)=>{
-      navigate(`/detaljiKompanija/${id}`);
+   const otvoriKomp = (komp)=>{
+      navigate(`/detaljiKompanija/${komp.id}`);
   }
 function getStanje(nazivKomp){
   return 3;
@@ -54,7 +54,7 @@ function getStanje(nazivKomp){
       let logo=komp.logo
     
  return (
-    <div className='KStavka' onClick={() => otvoriKomp(id)}>
+    <div className='KStavka' onClick={() => otvoriKomp(komp)}>
         <img src={logo} alt="" />
          <div className="overlay">
          <h3>Prikaži detalje o kompaniji</h3> 

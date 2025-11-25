@@ -5,7 +5,9 @@ import './DetaljiKompanije.css'
 function DetaljiKompanije() {
   return (
     <div className='detaljiKomp'>
+      <div>
         <Detalji/>
+      </div>
 
     </div>
   )
