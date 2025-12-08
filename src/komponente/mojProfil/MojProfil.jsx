@@ -1,12 +1,12 @@
 import React from 'react';
 import './MojProfil.css';
-import logo1 from '../../assets/lidl.png'; // primer slike
+import profilna from '../../assets/profile2.jpg'
 
 function MojProfil() {
   const korisnik = {
-    ime: 'Natalija Petrović',
-    email: 'natalija@example.com',
-    slika: logo1,
+    ime: 'Natalija Mirović',
+    email: 'natalija@gmail.com',
+    slika: profilna,
   };
 
   const prijavljeniOglasi = [

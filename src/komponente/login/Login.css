@@ -1,0 +1,78 @@
+
+  .login-all {
+  background: #ffc8dd; 
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;         
+  width: 100%;               
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.login-container {
+  max-width: 420px;
+  padding: 35px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #0077b6; /* plava za naslov */
+  font-weight: 600;
+}
+
+.login-container p.welcome-text {
+  margin-bottom: 25px;
+  font-size: 15px;
+  color: #023e8a; /* tamnija plava za opis */
+  font-style: italic;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #0077b6; /* plava boja labela */
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bde0fe; /* pastelno plava ivica */
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s ease;
+  color: #03045e; /* tamno plava boja teksta */
+}
+
+.form-group input:focus {
+  border: 1px solid #a2d2ff;
+  box-shadow: 0 0 6px rgba(162, 210, 255, 0.6);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #0077b6; /* plavo dugme */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #023e8a; /* tamnija plava na hover */
+}

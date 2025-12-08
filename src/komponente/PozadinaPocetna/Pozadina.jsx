@@ -7,7 +7,7 @@ function Pozadina() {
     <div className='pocetna'>
     <div className="pocetna-tekst">
         <h1>Započnite karijeru jednim klikom!</h1>
-        <p>Praksion Vam omogućava da pronađete..</p>
+        <p>Praksion Vam omogućava da pronađete najnovije oglase za poslove i prakse, iz raznih oblasti.</p>
     </div>
     </div>
   )
