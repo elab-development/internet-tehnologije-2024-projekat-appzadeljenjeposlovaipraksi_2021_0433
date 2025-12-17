@@ -2,14 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Kompanija extends Model
 {
     use HasFactory;
 
+    // Vezuje model za tabelu "kompanije"
     protected $table = 'kompanije';
+
+    // Primarni ključ tabele
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'naziv',
@@ -19,27 +23,11 @@ class Kompanija extends Model
         'email',
         'telefon',
         'website',
-        'logo',
-        'aktivna',
     ];
 
-    protected $casts = [
-        'aktivna' => 'boolean',
-    ];
-
-    /**
-     * Get all job listings for this company
-     */
+    // Relacija - jedna Kompanija ima mnogo Oglasa
     public function oglasi()
     {
-        return $this->hasMany(Oglas::class, 'kompanija_id');
-    }
-
-    /**
-     * Get all users (employees) of this company
-     */
-    public function zaposleni()
-    {
-        return $this->hasMany(User::class, 'kompanija_id');
+        return $this->hasMany(Oglas::class, 'kompanija');
     }
 }

@@ -11,54 +11,48 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
-        'ime',
-        'prezime',
+        'name',
         'email',
         'password',
-        'telefon',
-        'tip_korisnika', // 'student', 'kompanija', 'admin'
-        'kompanija_id',
+        'role'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
 
-    /**
-     * Get the company that the user belongs to (if company employee)
-     */
-    public function kompanija()
+    protected function casts(): array
     {
-        return $this->belongsTo(Kompanija::class, 'kompanija_id');
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
     }
 
-    /**
-     * Get all applications submitted by this user (if student)
-     */
+    // Relacija - jedan User ima mnogo Prijava
     public function prijave()
     {
-        return $this->hasMany(Prijava::class, 'korisnik_id');
+        return $this->hasMany(Prijava::class, 'user');
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isUser()
+    {
+        return $this->role === 'user';
+    }
+
+    public function isKompanija()
+    {
+        return $this->role === 'kompanija';
     }
 }

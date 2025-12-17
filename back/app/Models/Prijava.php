@@ -2,42 +2,36 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Prijava extends Model
 {
     use HasFactory;
 
+    // Vezuje model za tabelu "prijave"
     protected $table = 'prijave';
 
+    // Primarni ključ tabele
+    public $primaryKey = 'id';
+
     protected $fillable = [
-        'korisnik_id',
-        'oglas_id',
+        'user',
+        'oglas',
         'motivaciono_pismo',
-        'cv_path',
-        'status', // 'pending', 'accepted', 'rejected'
-        'napomena',
+        'status',
+        'datum_prijave',
     ];
 
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
-
-    /**
-     * Get the user who submitted this application
-     */
-    public function korisnik()
+    // belongsTo znači da svaki zapis u tabeli prijave pripada tačno jednom zapisu u tabeli users
+    public function userkey()
     {
-        return $this->belongsTo(User::class, 'korisnik_id');
+        return $this->belongsTo(User::class, 'user');
     }
 
-    /**
-     * Get the job listing this application is for
-     */
-    public function oglas()
+    // belongsTo znači da svaki zapis u tabeli prijave pripada tačno jednom zapisu u tabeli oglasi
+    public function oglaskey()
     {
-        return $this->belongsTo(Oglas::class, 'oglas_id');
+        return $this->belongsTo(Oglas::class, 'oglas');
     }
 }
