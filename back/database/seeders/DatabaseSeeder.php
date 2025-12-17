@@ -3,10 +3,11 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Kompanija;
 use App\Models\Oglas;
-use Illuminate\Support\Facades\Hash;
+use App\Models\Prijava;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,145 +18,143 @@ class DatabaseSeeder extends Seeder
     {
         // Create admin user
         $admin = User::create([
-            'ime' => 'Admin',
-            'prezime' => 'Administrator',
+            'name' => 'Admin',
             'email' => 'admin@example.com',
             'password' => Hash::make('password'),
-            'tip_korisnika' => 'admin',
+            'role' => 'admin',
         ]);
 
-        // Create test student
-        $student = User::create([
-            'ime' => 'Petar',
-            'prezime' => 'Petrovic',
-            'email' => 'student@example.com',
+        // Create regular users
+        $user1 = User::create([
+            'name' => 'Petar Petrović',
+            'email' => 'petar@example.com',
             'password' => Hash::make('password'),
-            'telefon' => '0641234567',
-            'tip_korisnika' => 'student',
+            'role' => 'user',
+        ]);
+
+        $user2 = User::create([
+            'name' => 'Marija Marić',
+            'email' => 'marija@example.com',
+            'password' => Hash::make('password'),
+            'role' => 'user',
+        ]);
+
+        // Create company user
+        $kompanijaUser = User::create([
+            'name' => 'Kompanija Manager',
+            'email' => 'kompanija@example.com',
+            'password' => Hash::make('password'),
+            'role' => 'kompanija',
         ]);
 
         // Create companies
         $kompanija1 = Kompanija::create([
             'naziv' => 'Tech Solutions d.o.o.',
-            'opis' => 'Vodeća IT kompanija u regionu specijalizovana za razvoj softvera.',
             'adresa' => 'Bulevar Mihajla Pupina 10',
             'grad' => 'Beograd',
+            'telefon' => '+381 11 1234567',
             'email' => 'info@techsolutions.rs',
-            'telefon' => '0112345678',
-            'website' => 'https://techsolutions.rs',
-            'broj_zaposlenih' => 150,
-            'aktivna' => true,
+            'opis' => 'Vodeća IT kompanija u regionu specijalizovana za razvoj softvera.',
+            'logo' => 'tech_solutions_logo.png',
         ]);
 
         $kompanija2 = Kompanija::create([
-            'naziv' => 'Digital Agency',
-            'opis' => 'Kreativna agencija za digitalni marketing i web dizajn.',
-            'adresa' => 'Knez Mihailova 15',
+            'naziv' => 'Digital Marketing Agency',
+            'adresa' => 'Knez Mihailova 22',
             'grad' => 'Beograd',
-            'email' => 'hello@digitalagency.rs',
-            'telefon' => '0118765432',
-            'website' => 'https://digitalagency.rs',
-            'broj_zaposlenih' => 50,
-            'aktivna' => true,
+            'telefon' => '+381 11 7654321',
+            'email' => 'contact@digitalmarketing.rs',
+            'opis' => 'Agencija za digitalni marketing i oglašavanje na društvenim mrežama.',
+            'logo' => 'digital_marketing_logo.png',
         ]);
 
         $kompanija3 = Kompanija::create([
-            'naziv' => 'StartUp Hub',
-            'opis' => 'Inkubator za startape i inovativne projekte.',
-            'adresa' => 'Naučni park 5',
-            'grad' => 'Novi Sad',
-            'email' => 'contact@startuphub.rs',
-            'telefon' => '0219876543',
-            'website' => 'https://startuphub.rs',
-            'broj_zaposlenih' => 25,
-            'aktivna' => true,
+            'naziv' => 'Finance Corp',
+            'adresa' => 'Terazije 5',
+            'grad' => 'Beograd',
+            'telefon' => '+381 11 9876543',
+            'email' => 'hr@financecorp.rs',
+            'opis' => 'Finansijska kompanija koja nudi razne usluge u oblasti finansija.',
+            'logo' => 'finance_corp_logo.png',
         ]);
 
-        // Create company user
-        User::create([
-            'ime' => 'Marko',
-            'prezime' => 'Markovic',
-            'email' => 'marko@techsolutions.rs',
-            'password' => Hash::make('password'),
-            'tip_korisnika' => 'kompanija',
-            'kompanija_id' => $kompanija1->id,
-        ]);
-
-        // Create job listings
-        Oglas::create([
+        // Create job listings (oglasi)
+        $oglas1 = Oglas::create([
             'naslov' => 'Junior PHP Developer',
-            'opis' => 'Tražimo junior PHP developera za rad na Laravel projektima. Potrebno je osnovno znanje PHP-a, MySQL-a i Git-a.',
+            'opis' => 'Tražimo Junior PHP developera sa znanjem Laravel frameworka. Potrebno je poznavanje MySQL baze podataka i Git sistema za kontrolu verzija.',
             'lokacija' => 'Beograd',
-            'tip_posla' => 'posao',
-            'plata' => 80000,
-            'zahtevi' => 'PHP, MySQL, Git, Laravel (poželjno)',
+            'tip' => 'Posao',
+            'plata' => '800-1200 EUR',
             'kompanija_id' => $kompanija1->id,
-            'aktivan' => true,
-            'rok_prijave' => now()->addMonths(1),
-            'trajanje_meseci' => null,
-            'datum_pocetka' => now()->addWeeks(2),
         ]);
 
-        Oglas::create([
-            'naslov' => 'Frontend Developer Praksa',
-            'opis' => 'Tražimo studente za plaćenu praksu u trajanju od 3 meseca. Rad na React projektima.',
-            'lokacija' => 'Beograd',
-            'tip_posla' => 'praksa',
-            'plata' => 40000,
-            'zahtevi' => 'HTML, CSS, JavaScript, React (osnovno)',
-            'kompanija_id' => $kompanija1->id,
-            'aktivan' => true,
-            'rok_prijave' => now()->addWeeks(3),
-            'trajanje_meseci' => 3,
-            'datum_pocetka' => now()->addMonths(1),
-        ]);
-
-        Oglas::create([
-            'naslov' => 'UI/UX Designer',
-            'opis' => 'Potreban nam je kreativni UI/UX dizajner za rad na web i mobilnim aplikacijama.',
-            'lokacija' => 'Beograd',
-            'tip_posla' => 'posao',
-            'plata' => 100000,
-            'zahtevi' => 'Figma, Adobe XD, Photoshop, osnove HTML/CSS',
-            'kompanija_id' => $kompanija2->id,
-            'aktivan' => true,
-            'rok_prijave' => now()->addMonths(2),
-            'trajanje_meseci' => null,
-            'datum_pocetka' => now()->addMonths(1),
-        ]);
-
-        Oglas::create([
-            'naslov' => 'Part-time Social Media Manager',
-            'opis' => 'Tražimo osobu za vođenje društvenih mreža na pola radnog vremena.',
+        $oglas2 = Oglas::create([
+            'naslov' => 'Frontend Developer - React',
+            'opis' => 'Potreban Frontend developer sa iskustvom u React.js. Rad na modernim web aplikacijama.',
             'lokacija' => 'Remote',
-            'tip_posla' => 'part-time',
-            'plata' => 35000,
-            'zahtevi' => 'Iskustvo sa društvenim mrežama, kreativnost, poznavanje alata za dizajn',
+            'tip' => 'Posao',
+            'plata' => '1000-1500 EUR',
+            'kompanija_id' => $kompanija1->id,
+        ]);
+
+        $oglas3 = Oglas::create([
+            'naslov' => 'Praksa - Digital Marketing',
+            'opis' => 'Nudimo praksu u oblasti digitalnog marketinga. Idealno za studente marketinga i komunikacija.',
+            'lokacija' => 'Beograd',
+            'tip' => 'Praksa',
+            'plata' => 'Neplaćena praksa',
             'kompanija_id' => $kompanija2->id,
-            'aktivan' => true,
-            'rok_prijave' => now()->addWeeks(2),
-            'trajanje_meseci' => null,
-            'datum_pocetka' => now()->addWeeks(1),
         ]);
 
-        Oglas::create([
-            'naslov' => 'Python Developer Intern',
-            'opis' => 'StartUp Hub nudi priliku za studente da rade na real-world projektima koristeći Python i Django.',
+        $oglas4 = Oglas::create([
+            'naslov' => 'Junior Finansijski Analitičar',
+            'opis' => 'Tražimo Junior finansijskog analitičara sa završenim ekonomskim fakultetom.',
             'lokacija' => 'Novi Sad',
-            'tip_posla' => 'praksa',
-            'plata' => 45000,
-            'zahtevi' => 'Python (osnovno), želja za učenjem, timski rad',
+            'tip' => 'Posao',
+            'plata' => '700-900 EUR',
             'kompanija_id' => $kompanija3->id,
-            'aktivan' => true,
-            'rok_prijave' => now()->addMonths(1),
-            'trajanje_meseci' => 6,
-            'datum_pocetka' => now()->addMonths(2),
         ]);
 
-        echo "Database seeded successfully!\n";
-        echo "Test accounts:\n";
-        echo "- Admin: admin@example.com / password\n";
-        echo "- Student: student@example.com / password\n";
-        echo "- Company: marko@techsolutions.rs / password\n";
+        $oglas5 = Oglas::create([
+            'naslov' => 'Praksa - Software Development',
+            'opis' => 'Plaćena praksa za studente računarskih nauka. Rad na realnim projektima pod mentorstvom iskusnih developera.',
+            'lokacija' => 'Beograd',
+            'tip' => 'Praksa',
+            'plata' => '300 EUR',
+            'kompanija_id' => $kompanija1->id,
+        ]);
+
+        // Create applications (prijave)
+        Prijava::create([
+            'user_id' => $user1->id,
+            'oglas_id' => $oglas1->id,
+            'status' => 'Na čekanju',
+            'motivaciono_pismo' => 'Zainteresovan sam za poziciju Junior PHP Developer jer imam iskustva sa Laravel frameworkom kroz fakultetske projekte.',
+            'datum_prijave' => now(),
+        ]);
+
+        Prijava::create([
+            'user_id' => $user1->id,
+            'oglas_id' => $oglas5->id,
+            'status' => 'Prihvaćena',
+            'motivaciono_pismo' => 'Želim da se prijavim za praksu kako bih stekao praktično iskustvo u razvoju softvera.',
+            'datum_prijave' => now()->subDays(5),
+        ]);
+
+        Prijava::create([
+            'user_id' => $user2->id,
+            'oglas_id' => $oglas3->id,
+            'status' => 'Na čekanju',
+            'motivaciono_pismo' => 'Kao studentkinja marketinga, verujem da bi ova praksa bila odlična prilika za sticanje praktičnog iskustva.',
+            'datum_prijave' => now()->subDays(2),
+        ]);
+
+        Prijava::create([
+            'user_id' => $user2->id,
+            'oglas_id' => $oglas2->id,
+            'status' => 'Odbijena',
+            'motivaciono_pismo' => 'Imam osnovno znanje React.js i želela bih da ga unapredim na ovoj poziciji.',
+            'datum_prijave' => now()->subDays(10),
+        ]);
     }
 }
