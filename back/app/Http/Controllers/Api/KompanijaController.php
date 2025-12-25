@@ -51,11 +51,9 @@ class KompanijaController extends Controller
         $validator = Validator::make($request->all(), [
             'naziv' => 'required|string|max:255',
             'opis' => 'required|string',
-            'adresa' => 'nullable|string|max:255',
             'grad' => 'nullable|string|max:100',
             'email' => 'required|email|unique:kompanije',
             'telefon' => 'nullable|string|max:20',
-            'website' => 'nullable|url|max:255',
             'logo' => 'nullable|string|max:255',
             'broj_zaposlenih' => 'nullable|integer|min:1',
         ]);
@@ -100,11 +98,9 @@ class KompanijaController extends Controller
         $validator = Validator::make($request->all(), [
             'naziv' => 'sometimes|string|max:255',
             'opis' => 'sometimes|string',
-            'adresa' => 'nullable|string|max:255',
             'grad' => 'nullable|string|max:100',
             'email' => 'sometimes|email|unique:kompanije,email,' . $id,
             'telefon' => 'nullable|string|max:20',
-            'website' => 'nullable|url|max:255',
             'logo' => 'nullable|string|max:255',
             'broj_zaposlenih' => 'nullable|integer|min:1',
             'aktivna' => 'sometimes|boolean',

@@ -4,23 +4,29 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-/**
- * Migration Type 5: Dodavanje indeksa i ogranicenja (Add Index/Constraint)
- */
 return new class extends Migration
 {
     public function up(): void
     {
         Schema::table('oglasi', function (Blueprint $table) {
-            // Dodavanje indeksa za brze pretrage
-            $table->index('tip_posla');
-            $table->index('aktivan');
-            $table->index('lokacija');
+            if (Schema::hasColumn('oglasi', 'tip_posla')) {
+                $table->index('tip_posla');
+            }
+            if (Schema::hasColumn('oglasi', 'aktivan')) {
+                $table->index('aktivan');
+            }
+            if (Schema::hasColumn('oglasi', 'lokacija')) {
+                $table->index('lokacija');
+            }
         });
 
         Schema::table('kompanije', function (Blueprint $table) {
-            $table->index('grad');
-            $table->index('aktivna');
+            if (Schema::hasColumn('kompanije', 'grad')) {
+                $table->index('grad');
+            }
+            if (Schema::hasColumn('kompanije', 'aktivna')) {
+                $table->index('aktivna');
+            }
         });
     }
 

@@ -6,20 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     * Tip migracije 2: Dodavanje kolone
-     */
     public function up(): void
     {
         Schema::table('kompanije', function (Blueprint $table) {
-            $table->string('logo')->nullable()->after('website');
+            $table->string('logo')->nullable()->after('telefon');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::table('kompanije', function (Blueprint $table) {

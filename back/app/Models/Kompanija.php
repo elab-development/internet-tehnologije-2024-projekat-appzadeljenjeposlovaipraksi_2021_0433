@@ -18,11 +18,9 @@ class Kompanija extends Model
     protected $fillable = [
         'naziv',
         'opis',
-        'adresa',
         'grad',
         'email',
         'telefon',
-        'website',
     ];
 
     // Relacija - jedna Kompanija ima mnogo Oglasa

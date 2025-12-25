@@ -6,20 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     * Tip migracije 2: Dodavanje kolone (datum_prijave)
-     */
     public function up(): void
     {
         Schema::table('prijave', function (Blueprint $table) {
-            $table->dateTime('datum_prijave')->nullable()->after('status');
+            $table->date('datum_prijave')->nullable()->after('created_at');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::table('prijave', function (Blueprint $table) {

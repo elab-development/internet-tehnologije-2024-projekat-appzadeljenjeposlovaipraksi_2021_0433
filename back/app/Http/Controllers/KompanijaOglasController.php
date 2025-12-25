@@ -16,7 +16,7 @@ class KompanijaOglasController extends Controller
      */
     public function index($id)
     {
-        $oglasi = Oglas::where('kompanija', $id)->get();
+        $oglasi = Oglas::where('kompanija_id', $id)->get();
         return new OglasCollection($oglasi);
     }
 }

@@ -6,28 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     * Tip migracije 1: Kreiranje tabele
-     */
     public function up(): void
     {
         Schema::create('kompanije', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('naziv');
             $table->text('opis')->nullable();
-            $table->string('adresa')->nullable();
             $table->string('grad')->nullable();
-            $table->string('email')->unique();
-            $table->string('telefon')->nullable();
-            $table->string('website')->nullable();
+            $table->boolean('aktivna')->default(true);
+            $table->integer('broj_zaposlenih')->nullable();
+            $table->string('telefon')->unique()->nullable();
+            $table->string('email')->unique()->nullable(); 
+            $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('kompanije');

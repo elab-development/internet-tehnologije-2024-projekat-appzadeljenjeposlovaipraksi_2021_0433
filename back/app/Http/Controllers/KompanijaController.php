@@ -33,10 +33,8 @@ class KompanijaController extends Controller
             'naziv' => 'required|string|max:150',
             'email' => 'required|email|unique:kompanije',
             'opis' => 'nullable|string',
-            'adresa' => 'nullable|string|max:255',
             'grad' => 'nullable|string|max:100',
             'telefon' => 'nullable|string|max:20|unique:kompanije',
-            'website' => 'nullable|url|max:255',
         ]);
 
         if ($validator->fails())
@@ -48,11 +46,8 @@ class KompanijaController extends Controller
         $kompanija = Kompanija::create([
             'naziv' => $request->naziv,
             'opis' => $request->opis,
-            'adresa' => $request->adresa,
             'grad' => $request->grad,
-            'email' => $request->email,
             'telefon' => $request->telefon,
-            'website' => $request->website,
         ]);
 
         return response()->json(['Kompanija is created successfully.', new KompanijaResource($kompanija)]);
@@ -82,10 +77,8 @@ class KompanijaController extends Controller
             'naziv' => 'required|string|max:150',
             'email' => 'required|email|unique:kompanije,email,' . $kompanija->id,
             'opis' => 'nullable|string',
-            'adresa' => 'nullable|string|max:255',
             'grad' => 'nullable|string|max:100',
             'telefon' => 'nullable|string|max:20|unique:kompanije,telefon,' . $kompanija->id,
-            'website' => 'nullable|url|max:255',
         ]);
 
         if ($validator->fails())
@@ -96,11 +89,9 @@ class KompanijaController extends Controller
 
         $kompanija->naziv = $request->naziv;
         $kompanija->opis = $request->opis;
-        $kompanija->adresa = $request->adresa;
         $kompanija->grad = $request->grad;
         $kompanija->email = $request->email;
         $kompanija->telefon = $request->telefon;
-        $kompanija->website = $request->website;
         $kompanija->save();
 
         return response()->json(['message' => 'Kompanija is updated successfully.', 'kompanija' => new KompanijaResource($kompanija)]);
