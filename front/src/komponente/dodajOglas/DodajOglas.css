@@ -1,0 +1,56 @@
+/* Pozadina cele stranice */
+body {
+  background-color: #d6ecf3; /* svetloplava pozadina */
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Kontejner forme */
+.dodaj-oglas {
+  max-width: 500px;
+  margin: 90px auto; /* veći razmak od vrha */
+  padding: 30px;
+  background-color: #f8d2e2; /* roze kao kontakt forma */
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Naslov forme */
+.dodaj-oglas h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+/* Stil za labelu i inpute */
+.oglas-forma label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #444;
+  font-size: 15px;
+}
+
+.oglas-forma input,
+.oglas-forma textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 14px;
+  background-color: #fff;
+  margin-top: 6px;
+}
+
+.oglas-forma textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Dugme */
+.dugme {
+  text-align: center;
+  margin-top: 25px;
+}
