@@ -1,0 +1,32 @@
+.kontakt-str{
+background: linear-gradient(#bde0fe84); 
+min-height: 100vh;
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.kontakt-str-forma {
+  max-width: 600px;
+  margin: 150px auto;
+  padding: 30px;
+  background: #ffc8ddd1;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+  color: #03045e;
+  text-align: center;
+gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.kontakt-str h2{
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+.kontakt-str h3{
+    font-size: 18px;
+    margin-bottom: 20px;
+}

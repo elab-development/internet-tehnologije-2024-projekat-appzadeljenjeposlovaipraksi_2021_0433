@@ -1,0 +1,58 @@
+.profil-stranica {
+  max-width: 900px;
+  margin: 150px auto;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(#bde0fe84); 
+  border-radius: 15px;
+  height: 100vh;
+
+}
+
+.zaglavlje {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.zaglavlje img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.info h2 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.info p {
+  font-size: 16px;
+  color: #555;
+}
+
+.prijave h3 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #03045e;
+}
+
+.lista-prijava {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.kartica {
+  background-color: #a2d2ff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}

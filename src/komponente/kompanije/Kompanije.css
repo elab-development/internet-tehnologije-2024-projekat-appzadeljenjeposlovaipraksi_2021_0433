@@ -1,0 +1,56 @@
+.kompanije-str {
+  padding: 40px 20px; 
+  margin-top: 80px;  
+ /* background: linear-gradient(#ffc8dd8a);*/
+  background: linear-gradient(#bde0fe84);
+
+}
+
+.lista-komp {
+  display: flex;
+  flex-wrap: wrap;         
+  gap: 40px;              
+  justify-content: flex-start; 
+}
+.komp-slike{
+  overflow: hidden;
+}
+.komp-slike ul{
+  display: flex;
+  width: 200%;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+.komp-slike ul li{
+  list-style: none;
+  width: 50%;
+  padding: 20px;
+}
+.komp-slika{
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  padding: 40px;
+  line-height: 1.4;
+}
+.komp-slika img{
+  height: 300px;
+  width: 250px;
+  object-fit: cover;
+}
+.next-btn, .before-btn{
+
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 15px;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  background:#ffafcc ;
+  border: none;
+  color: white;
+}
+.before-btn{
+  left: 0;
+  right: auto;
+}
